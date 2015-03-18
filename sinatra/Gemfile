@@ -1,0 +1,10 @@
+source "https://rubygems.org"
+
+gem "sinatra"
+gem "faraday"
+gem "nokogiri"
+
+group :development do
+  gem "rerun"
+  gem "byebug"
+end
