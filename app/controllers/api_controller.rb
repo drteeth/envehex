@@ -1,7 +1,7 @@
 class ApiController < ApplicationController
 
   def weather
-
+    Foo.new
   end
 
   private
