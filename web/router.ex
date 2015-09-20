@@ -19,8 +19,9 @@ defmodule EnvEh.Router do
     get "/", PageController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", EnvEh do
-  #   pipe_through :api
-  # end
+  scope "/api", EnvEh do
+    pipe_through :api
+
+    get "/weather", WeatherController, :index
+  end
 end
