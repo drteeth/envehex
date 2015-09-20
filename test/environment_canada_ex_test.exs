@@ -2,6 +2,6 @@ defmodule EnvironmentCanadaTest do
   use ExUnit.Case
 
   test "the truth" do
-    assert 1 + 1 == 2
+    IO.inspect EnvironmentCanada.fetch('on-143_e')
   end
 end
