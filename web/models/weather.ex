@@ -1,8 +1,6 @@
-defmodule Thinger do
+defmodule Weather do
 
-  defmodule Weather do
-    defstruct(current: nil, warnings: [], forecasts: [])
-  end
+  defstruct(current: nil, warnings: [], forecasts: [])
 
   defmodule Warning do
     defstruct(text: nil, link: nil)
@@ -23,7 +21,7 @@ defmodule Thinger do
     )
   end
 
-  def foo_it(feed) do
+  def parse(feed) do
     groups = feed.entries |> Enum.group_by fn e ->
       e.category
     end

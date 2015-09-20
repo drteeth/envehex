@@ -1,10 +1,12 @@
-defmodule EnvironmentCanada.Mixfile do
+defmodule EnvEh.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :environment_canada_ex,
+    [app: :env_eh,
      version: "0.0.1",
      elixir: "~> 1.0",
+     elixirc_paths: elixirc_paths(Mix.env),
+     compilers: [:phoenix] ++ Mix.compilers,
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps]
@@ -14,22 +16,27 @@ defmodule EnvironmentCanada.Mixfile do
   #
   # Type `mix help compile.app` for more information
   def application do
-    [applications: [:logger, :httpoison]]
+    [mod: {EnvEh, []},
+     applications: [:phoenix, :phoenix_html, :cowboy, :logger,
+                    :phoenix_ecto, :postgrex]]
   end
 
-  # Dependencies can be Hex packages:
+  # Specifies which paths to compile per environment
+  defp elixirc_paths(:test), do: ["lib", "web", "test/support"]
+  defp elixirc_paths(_),     do: ["lib", "web"]
+
+  # Specifies your project dependencies
   #
-  #   {:mydep, "~> 0.3.0"}
-  #
-  # Or git/path repositories:
-  #
-  #   {:mydep, git: "https://github.com/elixir-lang/mydep.git", tag: "0.1.0"}
-  #
-  # Type `mix help deps` for more examples and options
+  # Type `mix help deps` for examples and options
   defp deps do
-    [
-      {:httpoison, "~> 0.7.2"},
-      {:sweet_xml, "~> 0.4.0"},
-      {:timex, "~> 0.19.4"}]
+    [{:phoenix, "~> 1.0.2"},
+     {:phoenix_ecto, "~> 1.1"},
+     {:postgrex, ">= 0.0.0"},
+     {:phoenix_html, "~> 2.1"},
+     {:phoenix_live_reload, "~> 1.0", only: :dev},
+     {:cowboy, "~> 1.0"},
+     {:httpoison, "~> 0.7.2"},
+     {:sweet_xml, "~> 0.4.0"},
+     {:timex, "~> 0.19.4"}]
   end
 end
