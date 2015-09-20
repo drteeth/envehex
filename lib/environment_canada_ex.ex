@@ -33,7 +33,7 @@ defmodule EnvironmentCanada do
         title:      e |> xpath(~x"title/text()"),
         id:         e |> xpath(~x"id/text()"),
         title:      e |> xpath(~x"title/text()"),
-        link:       e |> xpath(~x"link/text()"),
+        link:       e |> xpath(~x"link/@href"),
         updated:    e |> xpath(~x"updated/text()"),
         published:  e |> xpath(~x"published/text()"),
         category:   e |> xpath(~x"category/@term"),
