@@ -24,5 +24,8 @@ defmodule EnvEh.Router do
 
     get "/weather", WeatherController, :index
     get "/weather/:id", WeatherController, :show
+
+    resources "/forecasts", ForecastController, except: [:new, :edit]
+    resources "/warnings", WarningController, except: [:new, :edit]
   end
 end
