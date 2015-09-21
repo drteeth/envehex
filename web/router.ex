@@ -23,5 +23,6 @@ defmodule EnvEh.Router do
     pipe_through :api
 
     get "/weather", WeatherController, :index
+    get "/weather/:id", WeatherController, :show
   end
 end
