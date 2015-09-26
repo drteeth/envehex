@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -e
+
+mix test $1

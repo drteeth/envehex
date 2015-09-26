@@ -2,8 +2,10 @@ defmodule EnvEh.Weather do
   use EnvEh.Web, :model
 
   schema "weather" do
+    field :source_id, :string
     field :temperature, :float
     field :summary, :string
+    field :published_on, Ecto.DateTime
 
     timestamps
   end

@@ -2,13 +2,14 @@ defmodule EnvEh.Forecast do
   use EnvEh.Web, :model
 
   schema "forecasts" do
+    field :source_id, :string
     field :high, :float
     field :low, :float
     field :pop, :float
     field :summary, :string
     field :quick_summary, :string
     field :day, Ecto.Date
-    field :published_at, Ecto.DateTime
+    field :published_on, Ecto.DateTime
 
     timestamps
   end
